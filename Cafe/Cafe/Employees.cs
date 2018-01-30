@@ -17,14 +17,12 @@ namespace Cafe
             InitializeComponent();
         }
 
-        private void EmployID_TextChanged(object sender, EventArgs e)
+        private void Save_Click(object sender, EventArgs e)
         {
-           
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            if (IDText.Text == "" || FullNameText.Text == "" || UserNameText.Text == "" || PasswordText.Text == "")
+            {
+                MessageBox.Show("Please fill in all the boxes");
+            }
         }
     }
 }

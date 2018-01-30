@@ -1,0 +1,30 @@
+c:\users\emily blake\documents\visual studio 2015\Projects\Cafe\Cafe\bin\Debug\Cafe.exe.config
+c:\users\emily blake\documents\visual studio 2015\Projects\Cafe\Cafe\bin\Debug\Cafe.exe
+c:\users\emily blake\documents\visual studio 2015\Projects\Cafe\Cafe\bin\Debug\Cafe.pdb
+c:\users\emily blake\documents\visual studio 2015\Projects\Cafe\Cafe\obj\Debug\Cafe.csprojResolveAssemblyReference.cache
+c:\users\emily blake\documents\visual studio 2015\Projects\Cafe\Cafe\obj\Debug\Cafe.Form1.resources
+c:\users\emily blake\documents\visual studio 2015\Projects\Cafe\Cafe\obj\Debug\Cafe.Properties.Resources.resources
+c:\users\emily blake\documents\visual studio 2015\Projects\Cafe\Cafe\obj\Debug\Cafe.csproj.GenerateResource.Cache
+c:\users\emily blake\documents\visual studio 2015\Projects\Cafe\Cafe\obj\Debug\Cafe.exe
+c:\users\emily blake\documents\visual studio 2015\Projects\Cafe\Cafe\obj\Debug\Cafe.pdb
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\obj\Debug\Cafe.DataBase_Employees.resources
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\obj\Debug\Cafe.Employees.resources
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\CafeEmployees.mdf
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\CafeEmployees_log.ldf
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\MySql.Data.dll
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\MySql.Data.xml
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\Database1.mdf
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\Database1_log.ldf
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\obj\Debug\Cafe.DatabaseTest.resources
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\obj\Debug\Cafe.csproj.Cafe.exe.config
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\MySQL.Data.EntityFrameworkCore.Design.dll
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\MySQL.Data.EntityFrameworkCore.dll
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\MySql.Web.dll
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\MySql.Data.Entity.EF6.xml
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\MySQL.Data.EntityFrameworkCore.xml
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\MySQL.Data.EntityFrameworkCore.Design.xml
+C:\Users\Emily Blake\Documents\Visual Studio 2015\Projects\Cafe\Cafe\bin\Debug\MySql.Web.xml
+C:\Users\Emily Blake\Source\Repos\Coffee_POS\Cafe\Cafe\bin\Debug\Cafe.exe.config
+C:\Users\Emily Blake\Source\Repos\Coffee_POS\Cafe\Cafe\obj\Debug\Cafe.exe
+C:\Users\Emily Blake\Source\Repos\Coffee_POS\Cafe\Cafe\obj\Debug\Cafe.pdb
