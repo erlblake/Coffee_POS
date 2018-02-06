@@ -64,28 +64,28 @@
             // 
             this.PasswordText.Location = new System.Drawing.Point(321, 336);
             this.PasswordText.Name = "PasswordText";
-            this.PasswordText.Size = new System.Drawing.Size(100, 31);
+            this.PasswordText.Size = new System.Drawing.Size(132, 31);
             this.PasswordText.TabIndex = 27;
             // 
             // UserNameText
             // 
             this.UserNameText.Location = new System.Drawing.Point(321, 281);
             this.UserNameText.Name = "UserNameText";
-            this.UserNameText.Size = new System.Drawing.Size(100, 31);
+            this.UserNameText.Size = new System.Drawing.Size(132, 31);
             this.UserNameText.TabIndex = 26;
             // 
             // FullNameText
             // 
             this.FullNameText.Location = new System.Drawing.Point(321, 221);
             this.FullNameText.Name = "FullNameText";
-            this.FullNameText.Size = new System.Drawing.Size(100, 31);
+            this.FullNameText.Size = new System.Drawing.Size(132, 31);
             this.FullNameText.TabIndex = 25;
             // 
             // IDText
             // 
             this.IDText.Location = new System.Drawing.Point(321, 170);
             this.IDText.Name = "IDText";
-            this.IDText.Size = new System.Drawing.Size(100, 31);
+            this.IDText.Size = new System.Drawing.Size(132, 31);
             this.IDText.TabIndex = 24;
             // 
             // Password

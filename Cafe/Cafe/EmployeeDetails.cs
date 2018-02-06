@@ -8,23 +8,27 @@ namespace Cafe
 {
     public class EmployeeDetails
     {
-        public int ID;
-        public string FullName;
-        public string UserName;
-        public string Password; 
-        public EmployeeDetails()
+        public List<EmployeeDetails> Listofemployees;
+
+        public int ID { get; set; }
+        public string FullName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+
+        public EmployeeDetails(int pID, string pFullName, string pUserName, string pPassword)
         {
+            ID = pID;
+            FullName = pFullName;
+            UserName = pUserName;
+            Password = pPassword;
 
         }
-        public EmployeeDetails(int ID, string FullName, string UserName, string Password)
-        {
-           
-        }
+    }
         /*
         { set; get; }
         */
     }
-    }
+    
    
    
 
