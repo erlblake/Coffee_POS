@@ -16,5 +16,10 @@ namespace Cafe
         {
             InitializeComponent();
         }
+
+        private void Enter_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

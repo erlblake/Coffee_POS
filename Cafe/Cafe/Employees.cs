@@ -18,15 +18,30 @@ namespace Cafe
         public Employees()
         {
             InitializeComponent();
-
+            PasswordText.UseSystemPasswordChar = true;
         }
         
+        public void Clear()
+        {
+                IDText.Clear();
+                FullNameText.Clear();
+                UserNameText.Clear();
+                PasswordText.Clear();
+        }
+
+   
 
         private void Save_Click(object sender, EventArgs e)
         {
+            
             if (IDText.Text == "" || FullNameText.Text == "" || UserNameText.Text == "" || PasswordText.Text == "")
             {
                 MessageBox.Show("Please fill in all the boxes");
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(IDText.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers");
+                Clear();
             }
             else
             {
@@ -43,6 +58,7 @@ namespace Cafe
                         tw.Close();
                     }
                 }
+                Clear();
             }
         }
     }
