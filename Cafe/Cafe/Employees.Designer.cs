@@ -87,6 +87,7 @@
             this.IDText.Name = "IDText";
             this.IDText.Size = new System.Drawing.Size(132, 31);
             this.IDText.TabIndex = 24;
+            this.IDText.TextChanged += new System.EventHandler(this.IDText_TextChanged);
             // 
             // Password
             // 

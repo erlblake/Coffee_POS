@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace Cafe
         public Login()
         {
             InitializeComponent();
+
         }
 
         public void ReadingTextFile()
@@ -24,34 +26,60 @@ namespace Cafe
 
             using (StreamReader r = new StreamReader(textfile))
             {
-               string line = " ";
-                string Password = " ";
-                string UserName = " ";
-                string FullName= " ";
+                string line = "";
+                string Password = "";
+                string UserName = "";
+                string FullName = "";
                 string ID = "";
+                bool enter = false;
                 while ((line = r.ReadLine()) != null)
                 {
                     string[] linearray = line.Split(',');
-                    for (int i = 0; i < 1; i++)
+                    for (int i = 0; i < linearray.Length; i++)
                     {
-                        Password = linearray[i+2];
-                        UserName = linearray[i+1];
-                        FullName = linearray[i];
-                        ID = linearray[i++];
+                        switch (i)
+                        {
+                            case 0:
+                                ID = linearray[i];
+                                break;
+                            case 1:
+                                FullName = linearray[i];
+                                break;
+                            case 2:
+                                UserName = linearray[i];
+                                break;
+                            case 3:
+                                Password = linearray[i];
+                                break;
+                        }
                     }
-                    foreach(string linesplit in linearray)
+                List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
+                Listofemployees.Add(new EmployeeDetails(int.Parse(ID), FullName, UserName, Password));
+                    if (enter == false)
                     {
-                                                                     
+                        if (UserName == UserNameText.Text.ToString() && Password == PasswordText.Text.ToString())
+                        {
+                            //Loads another screen
+                            MessageBox.Show("Correct user details entered");
+                            enter = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Username or password are not valid");
+                        }
                     }
-                   List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
-                    Listofemployees.Add(new EmployeeDetails(int.Parse(ID), FullName, UserName, Password)); 
-                }
+                }                      
             }
         }
 
         private void Enter_Click(object sender, EventArgs e)
         {
+            List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
             ReadingTextFile();
+            if (UserNameText.Text == "" || PasswordText.Text == "")
+            {
+                MessageBox.Show("Please enter a username and password");
+            }
         }
     }
 }

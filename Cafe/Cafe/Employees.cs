@@ -46,6 +46,10 @@ namespace Cafe
             else
             {
                 List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
+                if(Listofemployees.Find(UserNameText.Text))
+                {
+
+                }
                 Listofemployees.Add(new EmployeeDetails(int.Parse(IDText.Text), FullNameText.Text, UserNameText.Text, PasswordText.Text));
 
                 MessageBox.Show("Employee has been added to the system");
@@ -54,12 +58,17 @@ namespace Cafe
 
                     foreach (EmployeeDetails s in Listofemployees)
                     {
-                        tw.WriteLine(s.ID + ", " + s.FullName + ", " + s.UserName + ", " + s.Password);
+                        tw.WriteLine(s.ID + "," + s.FullName + "," + s.UserName + "," + s.Password);
                         tw.Close();
                     }
                 }
                 Clear();
             }
+        }
+
+        private void IDText_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
