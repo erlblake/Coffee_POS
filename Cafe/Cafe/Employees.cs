@@ -19,51 +19,109 @@ namespace Cafe
         {
             InitializeComponent();
             PasswordText.UseSystemPasswordChar = true;
+
         }
-        
+        public bool inuse;
+
         public void Clear()
         {
+            IDText.Clear();
+            FullNameText.Clear();
+            UserNameText.Clear();
+            PasswordText.Clear();
+        }
+
+        public void ReadingInTextFile()
+        {
+
+            const string textfile = "Savedlist.txt";
+            using (StreamReader r = new StreamReader(textfile))
+            {
+                string line;
+                string Password = "";
+                string UserName = "";
+                string FullName = "";
+                string ID = "";
+                while ((line = r.ReadLine()) != "")
+                {
+                    string[] linearray = line.Split(',');
+                    for (int i = 0; i < linearray.Length; i++)
+                    {
+                        switch (i)
+                        {
+                            case 0:
+                                ID = linearray[i];
+                                break;
+                            case 1:
+                                FullName = linearray[i];
+                                break;
+                            case 2:
+                                UserName = linearray[i];
+                                break;
+                            case 3:
+                                Password = linearray[i];
+                                break;
+                        }
+                    }
+                    List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
+                    Listofemployees.Add(new EmployeeDetails(int.Parse(ID), FullName, UserName, Password));
+                    if (UserName == UserNameText.Text || ID == IDText.Text)
+                    {
+                        MessageBox.Show("Please enter a different username or ID as this has already been used");
+                        if (UserName == UserNameText.Text)
+                        {
+                            UserNameText.Clear();
+                        }
+                        if (ID == IDText.Text)
+                        {
+                            IDText.Clear();
+                        }
+                        inuse = true;
+                    }
+                }
+            }
+
+        }
+
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            if (IDText.Text == "" || FullNameText.Text == "" || UserNameText.Text == "" || PasswordText.Text == "")
+            {
+                MessageBox.Show("Please fill in all the boxes");
                 IDText.Clear();
                 FullNameText.Clear();
                 UserNameText.Clear();
                 PasswordText.Clear();
-        }
 
-   
-
-        private void Save_Click(object sender, EventArgs e)
-        {
-            
-            if (IDText.Text == "" || FullNameText.Text == "" || UserNameText.Text == "" || PasswordText.Text == "")
-            {
-                MessageBox.Show("Please fill in all the boxes");
             }
             if (System.Text.RegularExpressions.Regex.IsMatch(IDText.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter only numbers");
-                Clear();
+                IDText.Clear();
             }
-            else
+            else if (IDText.Text != "" && FullNameText.Text != "" && UserNameText.Text != "" && PasswordText.Text != "")
             {
-                List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
-                if(Listofemployees.Find(UserNameText.Text))
+                ReadingInTextFile();
+                if (inuse == false)
                 {
+                    List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
+                    Listofemployees.Add(new EmployeeDetails(int.Parse(IDText.Text), FullNameText.Text, UserNameText.Text, PasswordText.Text));
 
-                }
-                Listofemployees.Add(new EmployeeDetails(int.Parse(IDText.Text), FullNameText.Text, UserNameText.Text, PasswordText.Text));
-
-                MessageBox.Show("Employee has been added to the system");
-                using (StreamWriter tw = new StreamWriter("Savedlist.txt", true))
-                {
-
-                    foreach (EmployeeDetails s in Listofemployees)
+                    MessageBox.Show("Employee has been added to the system");
+                    using (StreamWriter tw = new StreamWriter("Savedlist.txt", true))
                     {
-                        tw.WriteLine(s.ID + "," + s.FullName + "," + s.UserName + "," + s.Password);
-                        tw.Close();
+
+                        foreach (EmployeeDetails s in Listofemployees)
+                        {
+                            tw.WriteLine(s.ID + "," + s.FullName + "," + s.UserName + "," + s.Password);
+                            tw.Close();
+                        }
                     }
+                    Clear();
                 }
-                Clear();
             }
+            inuse = false;
         }
 
         private void IDText_TextChanged(object sender, EventArgs e)
@@ -72,4 +130,5 @@ namespace Cafe
         }
     }
 }
+
 

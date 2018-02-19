@@ -51,6 +51,8 @@ namespace Cafe
                             case 3:
                                 Password = linearray[i];
                                 break;
+                            default:
+                                throw new Exception("Should not be added");                               
                         }
                     }
                 List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
@@ -62,6 +64,9 @@ namespace Cafe
                             //Loads another screen
                             MessageBox.Show("Correct user details entered");
                             enter = true;
+                           new Employees().Show();
+                            new Login().Close();
+
                         }
                         else
                         {
@@ -69,6 +74,15 @@ namespace Cafe
                         }
                     }
                 }                      
+            }
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            if(Application.OpenForms.Count ==1)
+            {
+                Application.Exit();
             }
         }
 
@@ -81,5 +95,6 @@ namespace Cafe
                 MessageBox.Show("Please enter a username and password");
             }
         }
+
     }
 }

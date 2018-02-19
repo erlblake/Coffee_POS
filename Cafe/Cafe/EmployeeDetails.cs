@@ -23,6 +23,10 @@ namespace Cafe
             Password = pPassword;
 
         }
+        public EmployeeDetails(string CheckUserName)
+        {
+            UserName = CheckUserName;
+        }
     }
         /*
         { set; get; }
