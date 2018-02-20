@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +18,7 @@ namespace Cafe
         public Login()
         {
             InitializeComponent();
-
+         
         }
 
         public void ReadingTextFile()
@@ -52,20 +53,22 @@ namespace Cafe
                                 Password = linearray[i];
                                 break;
                             default:
-                                throw new Exception("Should not be added");                               
+                                throw new Exception("Should not be added");
                         }
                     }
-                List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
-                Listofemployees.Add(new EmployeeDetails(int.Parse(ID), FullName, UserName, Password));
+                    List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
+                    Listofemployees.Add(new EmployeeDetails(int.Parse(ID), FullName, UserName, Password));
+                }
+      
                     if (enter == false)
                     {
                         if (UserName == UserNameText.Text.ToString() && Password == PasswordText.Text.ToString())
                         {
                             //Loads another screen
-                            MessageBox.Show("Correct user details entered");
                             enter = true;
-                           new Employees().Show();
-                            new Login().Close();
+                            Thread t = new Thread(new ThreadStart(ThreadProc));
+                            t.Start();
+                            this.Close();
 
                         }
                         else
@@ -73,17 +76,16 @@ namespace Cafe
                             MessageBox.Show("Username or password are not valid");
                         }
                     }
-                }                      
+                }
+           
+            
             }
-        }
 
-        protected override void OnClosed(EventArgs e)
+        
+
+        public static void ThreadProc()
         {
-            base.OnClosed(e);
-            if(Application.OpenForms.Count ==1)
-            {
-                Application.Exit();
-            }
+            Application.Run(new Employees());
         }
 
         private void Enter_Click(object sender, EventArgs e)
@@ -98,3 +100,4 @@ namespace Cafe
 
     }
 }
+

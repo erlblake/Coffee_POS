@@ -42,7 +42,7 @@ namespace Cafe
                 string UserName = "";
                 string FullName = "";
                 string ID = "";
-                while ((line = r.ReadLine()) != "")
+                while ((line = r.ReadLine()) != null)
                 {
                     string[] linearray = line.Split(',');
                     for (int i = 0; i < linearray.Length; i++)
