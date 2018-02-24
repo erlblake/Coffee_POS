@@ -95,7 +95,7 @@ namespace Cafe
             }
 
         }
-
+        //comment
         //This is an event for a method that triggers when form.formclosed is triggered
         private void App_FormClosed(object sender, FormClosedEventArgs e)
         {
