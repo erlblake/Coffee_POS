@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Cafe
 {
@@ -18,11 +19,12 @@ namespace Cafe
         public Login()
         {
             InitializeComponent();
-         
+
         }
 
         public void ReadingTextFile()
         {
+            IDictionary<string, string> dict = new Dictionary<string, string>();
             const string textfile = "Savedlist.txt";
 
             using (StreamReader r = new StreamReader(textfile))
@@ -32,7 +34,6 @@ namespace Cafe
                 string UserName = "";
                 string FullName = "";
                 string ID = "";
-                bool enter = false;
                 while ((line = r.ReadLine()) != null)
                 {
                     string[] linearray = line.Split(',');
@@ -48,6 +49,7 @@ namespace Cafe
                                 break;
                             case 2:
                                 UserName = linearray[i];
+
                                 break;
                             case 3:
                                 Password = linearray[i];
@@ -58,30 +60,47 @@ namespace Cafe
                     }
                     List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
                     Listofemployees.Add(new EmployeeDetails(int.Parse(ID), FullName, UserName, Password));
+                    dict.Add(UserName, Password);
                 }
-      
-                    if (enter == false)
-                    {
-                        if (UserName == UserNameText.Text.ToString() && Password == PasswordText.Text.ToString())
-                        {
-                            //Loads another screen
-                            enter = true;
-                            Thread t = new Thread(new ThreadStart(ThreadProc));
-                            t.Start();
-                            this.Close();
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Username or password are not valid");
-                        }
-                    }
-                }
-           
-            
             }
 
-        
+            if (dict.ContainsKey(UserNameText.Text))
+            {
+                string value = "";
+                try
+                {
+                    dict.TryGetValue(UserNameText.Text, out value);
+                    if (value == PasswordText.Text)
+                    {
+                        //Thread t = new Thread(new ThreadStart(ThreadProc));
+                        //t.Start();
+                        var app = new Employees();                      
+                        app.FormClosed += App_FormClosed;
+                        app.Show();
+                        Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect Password entered");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Incorrect password entered");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Incorrect Password entererd");
+            }
+
+        }
+
+        //This is an event for a method that triggers when form.formclosed is triggered
+        private void App_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
 
         public static void ThreadProc()
         {
