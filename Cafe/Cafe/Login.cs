@@ -82,21 +82,24 @@ namespace Cafe
                     else
                     {
                         MessageBox.Show("Incorrect Password entered");
+                        PasswordText.Clear();
                     }
                 }
                 catch
                 {
                     MessageBox.Show("Incorrect password entered");
+                    PasswordText.Clear();
                 }
             }
             else
             {
                 MessageBox.Show("Incorrect Password entererd");
+                PasswordText.Clear();
             }
 
         }
-        //comment
-        //This is an event for a method that triggers when form.formclosed is triggered
+        
+        //This is called when Form.FormClosed is triggered. 
         private void App_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
@@ -109,12 +112,12 @@ namespace Cafe
 
         private void Enter_Click(object sender, EventArgs e)
         {
-            List<EmployeeDetails> Listofemployees = new List<EmployeeDetails>();
-            ReadingTextFile();
+           
             if (UserNameText.Text == "" || PasswordText.Text == "")
             {
                 MessageBox.Show("Please enter a username and password");
             }
+            ReadingTextFile();
         }
 
     }
